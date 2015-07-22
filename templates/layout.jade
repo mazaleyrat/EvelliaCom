@@ -1,3 +1,32 @@
+
+extends layout
+
+block content
+  include author
+  each article in articles
+    article.article.intro
+      header
+        p.date
+          span= moment.utc(article.date).format('DD. MMMM YYYY')
+        h2
+          a(href=article.url)= article.title
+      section.content
+        | !{ typogr(article.intro).typogrify() }
+        if article.hasMore
+          p.more
+            a(href=article.url) more
+
+block prepend footer
+  div.nav
+    if prevPage
+      a(href=prevPage.url) « Newer
+    else
+      a(href='/archive.html') « Archives
+    if nextPage
+      a(href=nextPage.url) Next page »
+
+
+
 doctype html
 block vars
   - var bodyclass = null;
@@ -6,25 +35,61 @@ html(lang='en')
     block head
       meta(charset='utf-8')
       meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-      meta(name='viewport', content='width=device-width')
+      meta(name='viewport', content='width=device-width, initial-scale=1')
       title
         block title
           = locals.name
       link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
       link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')
-      link(rel='stylesheet', href='/css/main.css')
-  body(class=bodyclass)
-    header.header
-      div.content-wrap
-        block header
-          div.logo
-            h1
-              a(href=locals.url)= locals.name
-            p.description= locals.description
-    div#content
-      div.content-wrap
-        block content
-          h2 Welcome to zombocom!
+
+      link(rel='stylesheet', href='/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/css/agency.css')
+      link(rel='stylesheet', href='/font-awesome-4.1.0/css/font-awesome.min.css')
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Montserrat:400,700')
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Kaushan+Script')
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic')
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700')
+
+      script(type='text/javascript', src='js/jquery-1.11.0.js')
+      script(type='text/javascript', src='js/bootstrap.min.js')
+      script(type='text/javascript', src='js/jquery.easing.min.js')
+      script(type='text/javascript', src='js/classie.js')
+      script(type='text/javascript', src='js/cbpAnimatedHeader.js')
+      script(type='text/javascript', src='js/jqBootstrapValidation.js')
+      script(type='text/javascript', src='js/contact_me.js')
+      script(type='text/javascript', src='js/agency.js')
+
+  body(class='bodyclass index'  id='page-top')
+    nav(class='navbar navbar-default navbar-fixed-top')
+      div.container
+        div(class='navbar-header page-scroll')
+          button(type=button, class='navbar-toggle' data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span(class='sr-only')
+              span Togle navigation
+          a(class='navbar-brand page-scroll', href='#page-top')
+              span #{ locals.name }
+        div(class='collapse navbar-collapse', id='bs-example-navbar-collapse-1')
+          ul(class='nav navbar-nav navbar-right')
+            li.hidden
+              a(href='#page-top')
+            li
+              a(class='page-scroll', href='#services')
+
+    header
+      div.container
+          div.intro-text
+              div.intro-lead-in
+                  span Welcome To Our Studio!
+              div.intro-heading
+                  span It's Nice To Meet You
+              a(href='#services', class='page-scroll btn btn-xl')
+                  span Tell Me More
+
+
+    section(id='services')
+      div.container
+        div.content-wrap
+          block content
     footer
       div.content-wrap
         block footer

@@ -1,5 +1,5 @@
 ---
-title: README
+title: Hello you
 author: the-wintersmith
 date: 2013-04-30
 template: article.jade
@@ -73,4 +73,3 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```
 
 This is where I leave you to your own devices. Join **#wintersmith** on freenode if you have any questions.
-

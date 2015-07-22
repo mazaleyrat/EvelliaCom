@@ -1,28 +1,409 @@
-extends layout
-
-block content
-  include author
-  each article in articles
-    article.article.intro
+doctype html(lang='en')
+head
+    title Home
+    meta(charset='utf-8')
+    meta(name='format-detection', content='telephone=no')
+    link(rel='icon', href='images/favicon.ico')
+    link(rel='shortcut icon', href='images/favicon.ico')
+    link(rel='stylesheet', href='css/contact-form.css')
+    link(rel='stylesheet', href='css/touchTouch.css')
+    link(rel='stylesheet', href='css/owl.carousel.css')
+    link(rel='stylesheet', href='css/style.css')
+    script(src='js/jquery.js')
+    script(src='js/jquery-migrate-1.1.1.js')
+    script(src='js/jquery.easing.1.3.js')
+    script(src='js/script.js')
+    script(src='js/superfish.js')
+    script(src='js/jquery.equalheights.js')
+    script(src='js/jquery.mobilemenu.js')
+    script(src='js/jquery.ui.totop.js')
+    script(src='js/owl.carousel.js')
+    script(src='js/touchTouch.jquery.js')
+    script(src='js/TMForm.js')
+    script(src='js/modal.js')
+    script.
+      $(window).load(function(){
+      $().UItoTop({ easingType: 'easeOutQuart' });
+      $("#owl").owlCarousel({
+      items : 4, //10 items above 1000px browser width
+      itemsDesktop : [995,1], //5 items between 1000px and 901px
+      itemsDesktopSmall : [767, 1], // betweem 900px and 601px
+      itemsTablet: [700, 1], //2 items between 600 and 0
+      itemsMobile : [479, 1], // itemsMobile disabled - inherit from itemsTablet option
+      navigation : true,
+      pagination :  false
+      });
+      $('.gallery .gall_item').touchTouch();
+      });
+    //if lt IE 8
+      div(style=' clear: both; text-align:center; position: relative;')
+        a(href='http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode')
+          img(src='http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg', border='0', height='42', width='820', alt='You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today.')
+    //if lt IE 9
+      script(src='js/html5shiv.js')
+      link(rel='stylesheet', media='screen', href='css/ie.css')
+  body
+    //
+      ==============================
       header
-        p.date
-          span= moment.utc(article.date).format('DD. MMMM YYYY')
-        h2
-          a(href=article.url)= article.title
-      section.content
-        | !{ typogr(article.intro).typogrify() }
-        if article.hasMore
-          p.more
-            a(href=article.url) more
+      =================================
+    .menu_bg
+    header
+      .navigation.single-page-nav
+        .container_12
+          .grid_12
+            h1.logo
+              a(href='index.html')
+                img(src='images/logo.svg', alt='')
 
-block prepend footer
-  div.nav
-    if prevPage
-      a(href=prevPage.url) « Newer
-    else
-      a(href='/archive.html') « Archives
-    if nextPage
-      a(href=nextPage.url) Next page »
+            nav
+              ul
+                li
+                  a.current(href='#why') Why
+
+                li
+                  a(href='#services') Services
+
+                li
+                  a(href='#about') About
+
+                li
+                  a(href='#contacts') Contacts
 
 
+      .container_12
+        .grid_12
+          h2
+            We Materialize Your Ideas into Digital Work
+            br
+            span
 
+
+          a.btn(href='#') read more
+
+          .socials
+            a.fa.fa-facebook(href='#')
+
+            a.fa.fa-twitter(href='#')
+
+            a.fa.fa-google-plus(href='#')
+
+
+        .clear
+    //
+      =====================
+      Content
+      ======================
+    section#services.page
+      .container_12
+        .ic
+
+        .grid_12
+          h3 Services
+
+        .grid_9
+          .serv_links
+            a.serv(href='#')
+              span Web
+
+            a.serv(href='#')
+              span Development
+
+            a.serv(href='#')
+              span SEO
+
+            a.serv(href='#')
+              span SEM
+
+            a.serv(href='#')
+              span Graphic
+
+            a.serv(href='#')
+              span Ideas
+
+            a.serv(href='#')
+              span Management
+
+            a.serv(href='#')
+              span Planning
+
+        .grid_3.fwn
+          .text1 Say what you need and we&rsquo;ll do it for you!
+                 Read about this
+          strong
+            a(href='http://blog.templatemonster.com/free-website-templates/', rel='nofollow') free theme
+            on our official blog.
+          br
+            To find the whole collection of
+          strong
+            a(href='http://www.templatemonster.com/properties/topic/design-photography/', rel='nofollow') templates for design companies
+           , visit TemplateMonster.com
+          br
+
+          a.btn(href='#') read more
+
+        .clear
+    section#portfolio.page.page_bg__1
+      .container_12
+        .grid_12
+          h3.head__1 Portfolio
+
+          #owl.gallery
+            .item
+              a.gall_item(href='images/big1.jpg')
+                img(src='images/page1_img1.jpg', alt='')
+
+            .item
+              a.gall_item(href='images/big2.jpg')
+                img(src='images/page1_img2.jpg', alt='')
+
+            .item
+              a.gall_item(href='images/big3.jpg')
+                img(src='images/page1_img3.jpg', alt='')
+
+            .item
+              a.gall_item(href='images/big4.jpg')
+                img(src='images/page1_img4.jpg', alt='')
+
+            .item
+              a.gall_item(href='images/big1.jpg')
+                img(src='images/page1_img1.jpg', alt='')
+
+            .item
+              a.gall_item(href='images/big2.jpg')
+                img(src='images/page1_img2.jpg', alt='')
+
+            .item
+              a.gall_item(href='images/big3.jpg')
+                img(src='images/page1_img3.jpg', alt='')
+
+            .item
+              a.gall_item(href='images/big4.jpg')
+                img(src='images/page1_img4.jpg', alt='')
+
+        .clear
+    section#about.page
+      .about_inset__1
+        .container_12
+          .grid_12
+            h3.head__1 About
+
+            .story
+              .grid_6.alpha
+                .block-1
+                  time.cornered(datetime='2014-01-01') Aug 2013
+
+                  .extra_wrapper
+                    .text1.tx__1
+                      a(href='#') Here we start
+                                     Vivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a, commodo luctus libero.
+
+                .block-1
+                  time.cornered(datetime='2014-01-01') June 2014
+
+                  .extra_wrapper
+                    .text1.tx__1
+                      a(href='#') Google I/O Conference
+                                     Bivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a, commodo luctus liberot.
+
+              .grid_6.omega
+                .block-1.inset__1
+                  time.cornered(datetime='2014-01-01') Sept 2013
+
+                  .extra_wrapper
+                    .text1.tx__1
+                      a(href='#') The major projects
+                                    Mivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a, commodo luctus libere.
+
+              .clear
+
+
+              .cornered.pos__1
+                 Our Story
+                br
+                  Goes On
+
+            .clear
+
+          .clear
+
+      .about_bg__1
+        .container_12
+          .grid_12
+            h3.head__1 Our Team
+
+            .grid_9.alpha
+              .team
+                a.team_item(href='#')
+                  img(src='images/corner_img1.png', alt='')
+
+                a.team_item(href='#')
+                  img(src='images/corner_img2.png', alt='')
+
+                a.team_item(href='#')
+                  img(src='images/corner_img3.png', alt='')
+
+                a.team_item(href='#')
+                  img(src='images/corner_img4.png', alt='')
+
+                a.team_item(href='#')
+                  img(src='images/corner_img5.png', alt='')
+
+                a.team_item(href='#')
+                  img(src='images/corner_img6.png', alt='')
+
+                a.team_item(href='#')
+                  img(src='images/corner_img7.png', alt='')
+
+                a.team_item(href='#')
+                  img(src='images/corner_img8.png', alt='')
+
+            .grid_3.omega
+              .text2 We are glad to meet you!
+
+              .fwn
+                 Vivamus at magna non nunc tristique rhoncus. Aliquamero nibh ante, egestas id dictum a commodo luctus libero
+
+          .clear
+        .clear
+    section#contacts.page
+      //
+        iframe(src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24214.807650104907!2d-73.94846048422478!3d40.65521573400813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1395650655094', style='border:0')
+      .contacts_bg
+        .container_12
+          .grid_12
+            h3.head__1 Contacts
+
+          .grid_5
+            .text2 Our Address
+
+            p.fz__1
+               Lorem ipsum dolor sit amet, consecteturpiscinger elit um dolor sit amet, consecteturpiscing.
+
+            p
+               Our
+              strong
+                a(href='http://www.templatemonster.com/', rel='nofollow') premium templates
+                go with 24/7 support.
+
+            p
+               If you have any questions about customization of
+              strong
+                a(href='http://blog.templatemonster.com/free-website-templates/ ', rel='nofollow') freebies
+               , address to
+              strong
+                a(href='http://www.templatetuning.com/', rel='nofollow') TemplateTuning
+               . Note that it&apos;s a paid service.
+                     The Company Name Inc.
+            br
+                     9870 St Vincent Place,
+            br
+                     Glasgow, DC 45 Fr 45.
+            br
+                     Telephone: +1 800 603 6035
+            br
+                     FAX: +1 800 889 9898
+            br
+                     E-mail:
+            a(href='#') mail@demolink.org
+
+          .grid_6.prefix_1
+            .text2 Write Us
+
+            form#contact-form
+              .contact-form-loader
+
+              fieldset
+                label.name
+                  input(type='text', name='name', placeholder='Name:', value='', data-constraints='@Required @JustLetters')
+
+                  span.empty-message *This field is required.
+
+                  span.error-message *This is not a valid name.
+
+
+                label.email
+                  input(type='text', name='email', placeholder='E-mail:', value='', data-constraints='@Required @Email')
+
+                  span.empty-message *This field is required.
+
+                  span.error-message *This is not a valid email.
+
+                label.phone
+                  input(type='text', name='phone', placeholder='Phone:', value='', data-constraints='@Required @JustNumbers')
+
+                  span.empty-message *This field is required.
+
+                  span.error-message *This is not a valid phone.
+
+                |
+                label.message
+                  textarea(name='message', placeholder='Message:', data-constraints='@Required @Length(min=20,max=999999)')
+                  |
+                  span.empty-message *This field is required.
+                  |
+                  span.error-message *The message is too short.
+                |
+                .ta__right
+                  a.btn(href='#', data-type='reset') clear
+                  |
+                  a.btn(href='#', data-type='submit') send
+              |
+              |
+              .modal.fade.response-message
+                .modal-dialog
+                  .modal-content
+                    .modal-header
+                      button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                      |
+                      h4.modal-title Modal title
+                    |
+                    .modal-body
+                      | You message has been sent! We will be in touch soon.
+        |
+        .clear
+    //
+      ==============================
+      footer
+      =================================
+    footer#footer
+      .container_12
+        .grid_12
+          .copyright
+            span.color1 DSGN
+            |  &copy;
+            span#copyright-year 2014
+            |  |
+            a(href='#') Privacy Policy
+            |
+            .sub-copy
+              | Website designed by
+              a(href='http://www.templatemonster.com/', rel='nofollow') TemplateMonster.com
+            | &#x9;
+            .sub-copy
+              | Popular free web templates
+              a(href='http://www.websitetemplatesonline.com', target='_blank') at www.WebsiteTemplatesOnline.com
+              | . |
+              a(href='http://www.getjoomlatemplatesfree.com/', title='Free templates for Joomla! CMS') www.getjoomlatemplatesfree.com
+              | . Joomla Design of Top Quality.
+      |
+      |
+      .clear
+    a#toTop.fa.fa-chevron-up(href='#')
+    script(src='js/jquery.singlePageNav.min.js')
+    |
+    script.
+      // Prevent console.log from generating errors in IE for the purposes of the demo
+      if ( ! window.console ) console = { log: function(){} };
+      // The actual plugin
+      $('.single-page-nav').singlePageNav({
+      offset: $('.single-page-nav').outerHeight(),
+      filter: ':not(.external)',
+      updateHash: true,
+      beforeStart: function() {
+      console.log('begin scrolling');
+      },
+      onComplete: function() {
+      console.log('done scrolling');
+      }
+      });

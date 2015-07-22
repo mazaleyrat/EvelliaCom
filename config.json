@@ -1,12 +1,13 @@
 {
   "locals": {
     "url": "http://localhost:8080",
-    "name": "The Wintersmith's blog",
-    "owner": "Someone",
+    "name": "Evellia",
+    "owner": "Evellia",
     "description": "Ramblings of an immor(t)al demigod"
   },
   "plugins": [
-    "./plugins/paginator.coffee"
+    "./plugins/paginator.coffee",
+    "wintersmith-appengine"
   ],
   "require": {
     "moment": "moment",
@@ -22,5 +23,9 @@
   },
   "paginator": {
     "perPage": 3
+  },
+  "appengine": {
+    "application": "evelliacom",
+    "version": 1
   }
 }
